@@ -8,6 +8,7 @@ use App\Model\ElectronicItem;
 use App\Model\ElectronicItems;
 use App\Model\Microwave;
 use App\Model\Television;
+use Exception;
 
 /**
  * Explanation to Electronic Service and Electronic Models logic (OOP).
@@ -24,8 +25,8 @@ class ElectronicService
 {
     /**
      * @param array $electronicItemsData
-     * @return ElectronicItems
-     * @throws \Exception
+     * @return array
+     * @throws Exception
      */
     public function proceedElectronicItems(array $electronicItemsData): array
     {
@@ -47,13 +48,13 @@ class ElectronicService
     /**
      * @param array $electronicItemsData
      * @return ElectronicItems
-     * @throws \Exception
+     * @throws Exception
      */
     public function generateElectronicItems(array $electronicItemsData): ElectronicItems
     {
-        //TODO Isset's can be avoided with request validation
+        //TODO Isset can be avoided with request validation
         if (!isset($electronicItemsData['electronic_list']) && !$electronicItemsData['electronic_list']) {
-            throw new \Exception('Electronic list is empty or not exist');
+            throw new Exception('Electronic list is empty or not exist');
         }
 
         $requirements = $electronicItemsData['requirements'] ?? [];
@@ -73,13 +74,13 @@ class ElectronicService
      * @param array $itemData
      * @param array $requirement
      * @return ElectronicItem
-     * @throws \Exception
+     * @throws Exception
      */
     private function callItemGenerator(array $itemData, array $requirement): ElectronicItem
     {
         $method = sprintf('generate%sItem', ucfirst($itemData['item_type']));
         if (!method_exists($this, $method)) {
-            throw new \Exception(sprintf('Method %s not exist.', $method));
+            throw new Exception(sprintf('Method %s not exist.', $method));
         }
 
         return $this->$method($itemData, $requirement);
