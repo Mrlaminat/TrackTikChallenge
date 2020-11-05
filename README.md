@@ -7,7 +7,7 @@ Main features
 ============
 This project was developed to demonstrate symfony 4 features for the simple REST API 
 and can be extended in multiple ways. For example: adding custom scenarios
-(different quantities, types, and extras, additional electronic items, adding database/cache storage).
+(different quantities, types, and extras, additional electronic items, adding database/cache storage, auth).
 - Set electronic devices properties as price and extras.
 - Proceed through a prepared scenario: 
     - return sorted items
@@ -28,7 +28,7 @@ Install
 
 Download project:
 
-    git clone git@github.com:Mrlaminat/TrackTikChallenge.git
+    git clone git@github.com:Mrlaminat/track-tik-challenge.git
 
 Clone .env.dist to .env
 
@@ -36,7 +36,7 @@ Clone .env.dist to .env
 
 ## Container Usage
 
-Run `docker-compose up -d --build`. Open up your browser of choice to [http://tracktik.challenge.localhost:8088/](http://tracktik.challenge.localhost:8088/) and you should see your Laravel app running as intended. 
+Run `docker-compose up -d --build`. Open up your browser of choice to [http://tracktik.challenge.localhost:8088/](http://tracktik.challenge.localhost:8088/) and you should see your Symfony app running as intended. 
 
 Containers created, and their ports (if used) are as follows:
 
@@ -44,7 +44,7 @@ Containers created, and their ports (if used) are as follows:
 - **php** - `:9001`
 
 Install the PHP dependencies by running the following command in the projects
-root folder:
+Root folder for non-docker user:
 
     composer install
     
@@ -71,6 +71,7 @@ Disable xDebug
 
 Using
 =========================
+I would recommend to use the Postman for testing, but you can use any client as well.
 
 API for the base scenario:
 
