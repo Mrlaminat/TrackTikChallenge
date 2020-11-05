@@ -30,6 +30,9 @@ Download project:
 
     git clone git@github.com:Mrlaminat/TrackTikChallenge.git
 
+Clone .env.dist to .env
+
+    cp .env.dist .env
 
 ## Container Usage
 
