@@ -1,0 +1,4 @@
+track_tik_challenge_base_scenario:
+  path:     /api/base-scenario
+  defaults: { _controller: App\Controller\ElectronicItemsController::baseScenarioAction }
+  methods: [POST]
